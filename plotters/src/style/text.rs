@@ -220,14 +220,14 @@ impl<'a> IntoTextStyle<'a> for FontFamily<'a> {
     }
 }
 
-impl IntoTextStyle<'static> for u32 {
-    fn into_text_style<P: HasDimension>(self, _: &P) -> TextStyle<'static> {
+impl<'a> IntoTextStyle<'a> for u32 {
+    fn into_text_style<P: HasDimension>(self, _: &P) -> TextStyle<'a> {
         TextStyle::from((FontFamily::SansSerif, self))
     }
 }
 
-impl IntoTextStyle<'static> for f64 {
-    fn into_text_style<P: HasDimension>(self, _: &P) -> TextStyle<'static> {
+impl<'a> IntoTextStyle<'a> for f64 {
+    fn into_text_style<P: HasDimension>(self, _: &P) -> TextStyle<'a> {
         TextStyle::from((FontFamily::SansSerif, self))
     }
 }
